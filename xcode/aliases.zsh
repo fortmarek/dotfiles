@@ -1,2 +1,5 @@
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 alias watchos="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator\ \(Watch\).app"
+alias bef="bundle exec fastlane"
+alias tgx="tuist generate && xed ."
+alias tu="tuist up"
