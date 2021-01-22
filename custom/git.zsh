@@ -49,6 +49,8 @@ function git_main_branch() {
 
 alias g='git'
 
+alias glb='git lb'
+
 alias ga='git add'
 alias gaa='git add --all'
 alias gapa='git add --patch'
