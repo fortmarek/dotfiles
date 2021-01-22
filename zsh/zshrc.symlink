@@ -106,3 +106,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 DEFAULT_USER=`whoami`
+
+# Bin files
+
+export PATH="$HOME/.dotfiles/bin:$PATH"
+
+# Ruby
+
+export PATH="/usr/local/opt/ruby@2.7/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/ruby@2.7/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby@2.7/include"
