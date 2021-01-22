@@ -135,6 +135,7 @@ install_dotfiles () {
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+  link_file "$DOTFILES_ROOT/zsh/oh-my-zsh.sh.symlink" "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 }
 
 setup_gitconfig
