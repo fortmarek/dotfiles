@@ -24,6 +24,7 @@
 [core]
         excludesfile = ~/.gitignore
         editor = vim
+        pager = delta
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -40,3 +41,5 @@
         default = simple
 [credential]
 	helper = osxkeychain
+[interactive]
+        diffFilter = delta --color-only
