@@ -130,7 +130,7 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*' -not -path '*oh-my-zsh.sh.symlink' -not -path '*.nix*')
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*' -not -path '*oh-my-zsh.sh.symlink')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
@@ -171,9 +171,16 @@ setup_oh_my_zsh_plugins () {
 setup_nix() {
   info 'Setting up nix'
   local overwrite_all=true backup_all=false skip_all=false
-  link_file "$DOTFILES_ROOT/nix/darwin-configuration.nix.symlink" "$HOME/.nixpkgs/darwin-configuration.nix"
+  link_file "$DOTFILES_ROOT/nix/darwin-configuration.nix" "$HOME/.nixpkgs/darwin-configuration.nix"
 }
 
+setup_xcode() {
+  info 'Setting up Xcode'
+  local overwrite_all=true backup_all=false skip_all=false
+  link_file "$DOTFILES_ROOT/xcode/Default.idkeybindings" "$HOME/Library/Developer/Xcode/UserData/KeyBindings/Default.idkeybindings"
+}
+
+setup_xcode
 setup_gitconfig
 setup_oh_my_zsh
 setup_oh_my_zsh_plugins
