@@ -130,7 +130,7 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*' -not -path '*oh-my-zsh.sh.symlink' -not -path '*.nix*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
@@ -168,6 +168,12 @@ setup_oh_my_zsh_plugins () {
   done
 }
 
+setup_nix() {
+  info 'Setting up nix'
+  local overwrite_all=true backup_all=false skip_all=false
+  link_file "$DOTFILES_ROOT/nix/darwin-configuration.nix.symlink" "$HOME/.nixpkgs/darwin-configuration.nix"
+}
+
 setup_gitconfig
 setup_oh_my_zsh
 setup_oh_my_zsh_plugins
@@ -184,6 +190,8 @@ then
     fail "error installing dependencies"
   fi
 fi
+
+setup_nix
 
 echo ''
 printf "\r\033[2K  \033[00;32mSetup complete! ✨\033[0m\n"
