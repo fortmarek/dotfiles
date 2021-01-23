@@ -204,6 +204,7 @@ alias gloga='git log --oneline --decorate --graph --all'
 alias glp="_git_log_prettily"
 
 alias gm='git merge'
+alias gmc='git merge --continue'
 alias gmom='git merge origin/$(git_main_branch)'
 alias gmt='git mergetool --no-prompt'
 alias gmtvim='git mergetool --no-prompt --tool=vimdiff'
