@@ -1,1 +1,1 @@
-brew "git-delta"
+brew "ruby@2.7"
