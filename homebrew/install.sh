@@ -8,6 +8,7 @@
 # Check for Homebrew
 if test ! $(which brew)
 then
+  echo " Hello "
   echo "  Installing Homebrew for you."
 
   # Install the correct homebrew for each OS type
@@ -18,7 +19,9 @@ then
   then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
   fi
-
 fi
+
+echo " Install Homebrew dependencies"
+brew bundle
 
 exit 0
