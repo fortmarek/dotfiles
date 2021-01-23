@@ -135,10 +135,40 @@ install_dotfiles () {
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+}
+
+setup_oh_my_zsh () {
+  info 'Setting up oh my zsh'
+
+  export RUNZSH="no"
+
+  if ! [ -d "$HOME/.oh-my-zsh" ]
+  then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &>/dev/null
+  fi
+
+  local overwrite_all=true backup_all=false skip_all=false
   link_file "$DOTFILES_ROOT/zsh/oh-my-zsh.sh.symlink" "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 }
 
+setup_oh_my_zsh_plugins () {
+  info 'Settings up oh my zsh plugins'
+  ZSH_CUSTOM="$ZSH/custom"
+  for i in "https://github.com/zsh-users/zsh-autosuggestions zsh_autosuggestions"\
+  "https://github.com/zsh-users/zsh-syntax-highlighting zsh-syntax-highlighting"\
+  "https://github.com/agkozak/zsh-z zsh-z"
+  do
+    set -- $i
+    if ! [ -d "$ZSH_CUSTOM/plugins/$2" ]
+    then
+      git clone "$1" "$ZSH_CUSTOM/plugins/$2"
+    fi
+  done
+}
+
 setup_gitconfig
+setup_oh_my_zsh
+setup_oh_my_zsh_plugins
 install_dotfiles
 
 # If we're on a Mac, let's install and setup homebrew.
@@ -154,4 +184,3 @@ then
 fi
 
 echo ''
-echo '  All installed!'
