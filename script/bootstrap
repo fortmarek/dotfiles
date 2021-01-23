@@ -145,23 +145,25 @@ setup_oh_my_zsh () {
   if ! [ -d "$HOME/.oh-my-zsh" ]
   then
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &>/dev/null
+    local overwrite_all=true backup_all=false skip_all=false
+  else
+    local overwrite_all=false backup_all=false skip_all=false
   fi
 
-  local overwrite_all=true backup_all=false skip_all=false
   link_file "$DOTFILES_ROOT/zsh/oh-my-zsh.sh.symlink" "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 }
 
 setup_oh_my_zsh_plugins () {
   info 'Settings up oh my zsh plugins'
   ZSH_CUSTOM="$ZSH/custom"
-  for i in "https://github.com/zsh-users/zsh-autosuggestions zsh_autosuggestions"\
+  for i in "https://github.com/zsh-users/zsh-autosuggestions zsh-autosuggestions"\
   "https://github.com/zsh-users/zsh-syntax-highlighting zsh-syntax-highlighting"\
   "https://github.com/agkozak/zsh-z zsh-z"
   do
     set -- $i
     if ! [ -d "$ZSH_CUSTOM/plugins/$2" ]
     then
-      git clone "$1" "$ZSH_CUSTOM/plugins/$2"
+      git clone "$1" "$ZSH_CUSTOM/plugins/$2" &>/dev/null
     fi
   done
 }
@@ -184,3 +186,6 @@ then
 fi
 
 echo ''
+printf "\r\033[2K  \033[00;32mSetup complete! ✨\033[0m\n"
+
+exec zsh -l
