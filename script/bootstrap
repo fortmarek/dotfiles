@@ -176,8 +176,13 @@ setup_nix() {
 
 setup_xcode() {
   info 'Setting up Xcode'
-  local overwrite_all=true backup_all=false skip_all=false
-  link_file "$DOTFILES_ROOT/xcode/Default.idkeybindings" "$HOME/Library/Developer/Xcode/UserData/KeyBindings/Default.idkeybindings"
+  local overwrite_all=false backup_all=false skip_all=false
+  link_file "$DOTFILES_ROOT/xcode/Default.idekeybindings" "$HOME/Library/Developer/Xcode/UserData/KeyBindings/Default.idekeybindings"
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.codesnippet')
+  do
+    dst="$HOME/Library/Developer/Xcode/UserData/CodeSnippets/$(basename "$src")"
+    link_file "$src" "$dst"
+  done
 }
 
 setup_xcode
