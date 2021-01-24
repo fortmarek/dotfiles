@@ -3,3 +3,4 @@ alias watchos="open /Applications/Xcode.app/Contents/Developer/Applications/Simu
 alias bef="bundle exec fastlane"
 alias tgx="tuist generate && xed ."
 alias tu="tuist up"
+alias tg="tuist generate"
