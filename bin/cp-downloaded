@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# This function copies the most recently downloaded file to a destination specified
+# `cp-downloaded $dst`
+
+cp "$HOME/Downloads/$(ls -t ~/Downloads | head -n1)" $1

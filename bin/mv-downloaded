@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# This function moves the most recently downloaded file to a destination specified
+# `mv-downloaded $dst`
+
+mv "$HOME/Downloads/$(ls -t ~/Downloads | head -n1)" $1
