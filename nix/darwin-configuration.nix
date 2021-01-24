@@ -10,6 +10,7 @@
         gitAndTools.gh
         python37
         nodejs
+        yarn
     ];
 
   programs.zsh.enable = true;  # default shell on catalina
