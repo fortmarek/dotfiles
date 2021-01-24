@@ -1,5 +1,12 @@
 {
-    "cli": {
-      "packageManager": "yarn"
-    }
+	"cli": {
+		"packageManager": "yarn"
+	},
+	"telemetry": {
+		"machineId": "8ee0ae7c-2a52-4ebf-b022-3443961143b3",
+		"enabled": true
+	},
+	"lastExperimentNotice": {
+		"Preserve webpack's Cache": 1611481237860
+	}
 }

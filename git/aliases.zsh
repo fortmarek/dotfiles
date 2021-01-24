@@ -53,6 +53,7 @@ alias glb='git lb'
 
 alias ga='git add'
 alias gaa='git add --all'
+alias gaam='git add --all && git commit --amend --no-edit'
 alias gapa='git add --patch'
 alias gau='git add --update'
 alias gav='git add --verbose'
