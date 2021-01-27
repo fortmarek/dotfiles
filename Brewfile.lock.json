@@ -51,6 +51,14 @@
           }
         }
       }
+    },
+    "cask": {
+      "google-chrome": {
+        "version": "88.0.4324.96,4324.96",
+        "options": {
+          "full_name": "google-chrome"
+        }
+      }
     }
   },
   "system": {
