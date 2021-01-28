@@ -75,6 +75,35 @@
             }
           }
         }
+      },
+      "node": {
+        "version": "15.6.0",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/node-15.6.0.big_sur.bottle.tar.gz",
+              "sha256": "27bc778ed4a82ac432fdad730697461f556d9702471614f2f20aaf550210a5d1"
+            },
+            "arm64_big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/node-15.6.0.arm64_big_sur.bottle.tar.gz",
+              "sha256": "4c6c6535ade05f442043898c48f058b021cca01b533119adecd182c22e20f78b"
+            },
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/node-15.6.0.catalina.bottle.tar.gz",
+              "sha256": "aca1741bd75463b34faa1b80e3cda71eeeca5366ef4cc661752bc673433e4b5d"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/node-15.6.0.mojave.bottle.tar.gz",
+              "sha256": "6cae45c73dd2b17e4f16e8d290ac6747aa06fe87af2740bad5be296e9dfe4192"
+            }
+          }
+        }
+      },
+      "yarn": {
+        "version": "1.22.10",
+        "bottle": false
       }
     },
     "cask": {

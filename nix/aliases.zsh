@@ -1,1 +1,0 @@
-alias nix-install="nix-env -iA"

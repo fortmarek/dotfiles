@@ -168,12 +168,6 @@ setup_oh_my_zsh_plugins () {
   done
 }
 
-setup_nix() {
-  info 'Setting up nix'
-  local overwrite_all=true backup_all=false skip_all=false
-  link_file "$DOTFILES_ROOT/nix/darwin-configuration.nix" "$HOME/.nixpkgs/darwin-configuration.nix"
-}
-
 setup_config() {
   info 'Setting up config'
   local overwrite_all=false backup_all=false skip_all=false
@@ -209,8 +203,6 @@ then
     fail "error installing dependencies"
   fi
 fi
-
-setup_nix
 
 echo ''
 printf "\r\033[2K  \033[00;32mSetup complete! ✨\033[0m\n"
