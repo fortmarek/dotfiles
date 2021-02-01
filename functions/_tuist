@@ -1,0 +1,750 @@
+#compdef tuist
+local context state state_descr line
+_tuist_commandname=$words[1]
+typeset -A opt_args
+
+_tuist() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--help-env[Display subcommands to manage the environment tuist versions.]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'generate:Generates an Xcode workspace to start working on the project.'
+                'up:Configures the environment for the project.'
+                'focus:Opens Xcode ready to focus on the project in the current directory'
+                'edit:Generates a temporary project to edit the project in the current directory'
+                'secret:Generates a cryptographically secure secret.'
+                'dump:Outputs the project manifest as a JSON'
+                'graph:Generates a graph from the workspace or project in the current directory'
+                'lint:A set of tools for linting projects and code.'
+                'version:Outputs the current version of tuist'
+                'build:Builds a project'
+                'test:Tests a project'
+                'create-issue:Opens the GitHub page to create a new issue'
+                'scaffold:Generates new project based on template'
+                'init:Bootstraps a project'
+                'cloud:A set of commands for cloud features.'
+                'cache:A set of utilities related to the caching of targets.'
+                'signing:A set of commands for signing-related operations'
+                'migration:A set of utilities to assist on the migration of Xcode projects to Tuist.'
+                'clean:Clean all the artefacts stored locally'
+                'doc:Generates html documentation for a given target.'
+                'dependencies:\[Experimental\] A set of commands for project'"'"'s dependencies managment.'
+                'help:Show subcommand help information.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (generate)
+                    _tuist_generate
+                    ;;
+                (up)
+                    _tuist_up
+                    ;;
+                (focus)
+                    _tuist_focus
+                    ;;
+                (edit)
+                    _tuist_edit
+                    ;;
+                (secret)
+                    _tuist_secret
+                    ;;
+                (dump)
+                    _tuist_dump
+                    ;;
+                (graph)
+                    _tuist_graph
+                    ;;
+                (lint)
+                    _tuist_lint
+                    ;;
+                (version)
+                    _tuist_version
+                    ;;
+                (build)
+                    _tuist_build
+                    ;;
+                (test)
+                    _tuist_test
+                    ;;
+                (create-issue)
+                    _tuist_create-issue
+                    ;;
+                (scaffold)
+                    _tuist_scaffold
+                    ;;
+                (init)
+                    _tuist_init
+                    ;;
+                (cloud)
+                    _tuist_cloud
+                    ;;
+                (cache)
+                    _tuist_cache
+                    ;;
+                (signing)
+                    _tuist_signing
+                    ;;
+                (migration)
+                    _tuist_migration
+                    ;;
+                (clean)
+                    _tuist_clean
+                    ;;
+                (doc)
+                    _tuist_doc
+                    ;;
+                (dependencies)
+                    _tuist_dependencies
+                    ;;
+                (help)
+                    _tuist_help
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_tuist_generate() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the directory that contains the definition of the project.]:path:_files -/'
+        '(-P --project-only)'{-P,--project-only}'[Only generate the local project (without generating its dependencies).]'
+        '(-O --open)'{-O,--open}'[Open the project after generating it.]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_up() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the directory that contains the project.]:path:_files -/'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_focus() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the directory containing the project you plan to focus on.]:path:_files -/'
+        ':sources:'
+        '(--no-open -n)'{--no-open,-n}'[Don'"'"'t open the project after generating it.]'
+        '(-x --xcframeworks)'{-x,--xcframeworks}'[When passed it uses xcframeworks (simulator and device) from the cache instead of frameworks (only simulator).]'
+        '--no-cache[Ignore cached targets, and use their sources instead.]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_edit() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the directory whose project will be edited]:path:_files -/'
+        '(--permanent -P)'{--permanent,-P}'[It creates the project in the current directory or the one indicated by -p and doesn'"'"'t block the process]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_secret() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_dump() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the folder where the project manifest is]:path:_files -/'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_graph() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-t --skip-test-targets)'{-t,--skip-test-targets}'[Skip Test targets during graph rendering.]'
+        '(-d --skip-external-dependencies)'{-d,--skip-external-dependencies}'[Skip external dependencies.]'
+        '(-f --format)'{-f,--format}'[Available formats: dot, png]:format:'
+        '(-a --algorithm)'{-a,--algorithm}'[Available formats: dot, neato, twopi, circo, fdp, sfddp, patchwork]:algorithm:'
+        '(--path -p)'{--path,-p}'[The path where the graph will be generated.]:path:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_lint() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'project:Lints a workspace or a project that check whether they are well configured'
+                'code:Lints the code of your projects using Swiftlint.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (project)
+                    _tuist_lint_project
+                    ;;
+                (code)
+                    _tuist_lint_code
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_tuist_lint_project() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the directory that contains the workspace or project to be linted]:path:_files -/'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_lint_code() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the directory that contains the workspace or project whose code will be linted.]:path:_files -/'
+        ':target:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_version() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_build() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':scheme:'
+        '--generate[Force the generation of the project before building.]'
+        '--clean[When passed, it cleans the project before building it]'
+        '(--path -p)'{--path,-p}'[The path to the directory that contains the project to be built.]:path:_files -/'
+        '(--configuration -C)'{--configuration,-C}'[The configuration to be used when building the scheme.]:configuration:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_test() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':scheme:'
+        '--generate[Force the generation of the project before testing.]'
+        '--clean[When passed, it cleans the project before testing it.]'
+        '(--path -p)'{--path,-p}'[The path to the directory that contains the project to be tested.]:path:'
+        '(--device -d)'{--device,-d}'[Test on a specific device.]:device:'
+        '(--os -o)'{--os,-o}'[Test with a specific version of the OS.]:os:'
+        '(--configuration -C)'{--configuration,-C}'[The configuration to be used when testing the scheme.]:configuration:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_create-issue() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_scaffold() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':template:'
+        '--json[The output in JSON format]'
+        '(--path -p)'{--path,-p}'[The path to the folder where the template will be generated (Default: Current directory)]:path:_files -/'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'list:Lists available scaffold templates'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (list)
+                    _tuist_scaffold_list
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_tuist_scaffold_list() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--json[The output in JSON format]'
+        '(--path -p)'{--path,-p}'[The path where you want to list templates from]:path:_files -/'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_init() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--platform[The platform (ios, tvos or macos) the product will be for (Default: ios)]:platform:(ios tvos macos)'
+        '(--name -n)'{--name,-n}'[The name of the project. If it'"'"'s not passed (Default: Name of the directory)]:name:'
+        '(--template -t)'{--template,-t}'[The name of the template to use (you can list available templates with tuist scaffold list)]:template:'
+        '(--path -p)'{--path,-p}'[The path to the folder where the project will be generated (Default: Current directory)]:path:_files -/'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_cloud() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'auth:Authenticates the user on the server with the URL defined in the Config.swift file'
+                'session:Prints any existing session to authenticate on the server with the URL defined in the Config.swift file'
+                'logout:Removes any existing session to authenticate on the server with the URL defined in the Config.swift file'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (auth)
+                    _tuist_cloud_auth
+                    ;;
+                (session)
+                    _tuist_cloud_session
+                    ;;
+                (logout)
+                    _tuist_cloud_logout
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_tuist_cloud_auth() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_cloud_session() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_cloud_logout() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_cache() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'warm:Warms the local and remote cache.'
+                'print-hashes:Print the hashes of the cacheable frameworks in the given project.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (warm)
+                    _tuist_cache_warm
+                    ;;
+                (print-hashes)
+                    _tuist_cache_print-hashes
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_tuist_cache_warm() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the directory that contains the project whose targets will be cached.]:path:_files -/'
+        '(-x --xcframeworks)'{-x,--xcframeworks}'[When passed it caches the targets for simulator and device using xcframeworks.]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_cache_print-hashes() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path where the project will be generated.]:path:_files -/'
+        '(-x --xcframeworks)'{-x,--xcframeworks}'[When passed it caches the targets for simulator and device in a .xcframework]'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_signing() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'encrypt:Encrypts all files in Tuist/Signing directory'
+                'decrypt:Decrypts all files in Tuist/Signing directory'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (encrypt)
+                    _tuist_signing_encrypt
+                    ;;
+                (decrypt)
+                    _tuist_signing_decrypt
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_tuist_signing_encrypt() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the folder containing the certificates you would like to encrypt]:path:_files -/'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_signing_decrypt() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the folder containing the encrypted certificates]:path:_files -/'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_migration() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'settings-to-xcconfig:It extracts the build settings from a project or a target into an xcconfig file.'
+                'check-empty-settings:It checks if the build settings of a project or target are empty. Otherwise it exits unsuccessfully.'
+                'list-targets:It lists the targets of a project sorted by number of dependencies.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (settings-to-xcconfig)
+                    _tuist_migration_settings-to-xcconfig
+                    ;;
+                (check-empty-settings)
+                    _tuist_migration_check-empty-settings
+                    ;;
+                (list-targets)
+                    _tuist_migration_list-targets
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_tuist_migration_settings-to-xcconfig() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-p --xcodeproj-path)'{-p,--xcodeproj-path}'[The path to the Xcode project]:xcodeproj-path:_files -/'
+        '(-x --xcconfig-path)'{-x,--xcconfig-path}'[The path to the .xcconfig file where build settings will be extracted.]:xcconfig-path:_files -/'
+        '(--target -t)'{--target,-t}'[The name of the target whose build settings will be extracted. When not passed, it extracts the build settings of the project.]:target:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_migration_check-empty-settings() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-p --xcodeproj-path)'{-p,--xcodeproj-path}'[The path to the Xcode project]:xcodeproj-path:_files -/'
+        '(--target -t)'{--target,-t}'[The name of the target whose build settings will be checked. When not passed, it checks the build settings of the project.]:target:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_migration_list-targets() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-p --xcodeproj-path)'{-p,--xcodeproj-path}'[The path to the Xcode project]:xcodeproj-path:_files -/'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_clean() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_doc() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the Project.swift container folder.]:path:_files -/'
+        '(--serve -P)'{--serve,-P}'[It creates the project in the current directory or the one indicated by -p and doesn'"'"'t block the process]'
+        ':target:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_dependencies() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Print help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'fetch:Fetches the project'"'"'s dependencies defined in `Dependencies.swift`.'
+                'update:Updates the project'"'"'s dependencies defined in `Dependencies.swift`.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (fetch)
+                    _tuist_dependencies_fetch
+                    ;;
+                (update)
+                    _tuist_dependencies_update
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_tuist_dependencies_fetch() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the directory that contains the definition of the project.]:path:_files -/'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_dependencies_update() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--path -p)'{--path,-p}'[The path to the directory that contains the definition of the project.]:path:_files -/'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_tuist_help() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':subcommands:'
+        '(-h --help)'{-h,--help}'[Print help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+
+_custom_completion() {
+    local completions=("${(@f)$($*)}")
+    _describe '' completions
+}
+
+_tuist
