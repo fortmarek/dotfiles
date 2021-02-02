@@ -6,6 +6,8 @@
         email = marekfort@me.com
 [includeIf "gitdir:~/Development/ackee/"]
         path = ~/.gitconfig_work
+[includeIf "gitdir:~/Development/school/"]
+        path = ~/.gitconfig_school
 [hub]
         protocol = https
 [alias]
