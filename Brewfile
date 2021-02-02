@@ -5,3 +5,4 @@ brew "git-delta"
 brew "yarn"
 
 cask "google-chrome"
+cask "speedcrunch"

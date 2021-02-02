@@ -112,6 +112,12 @@
         "options": {
           "full_name": "google-chrome"
         }
+      },
+      "speedcrunch": {
+        "version": "0.12",
+        "options": {
+          "full_name": "speedcrunch"
+        }
       }
     }
   },
