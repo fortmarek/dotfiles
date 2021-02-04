@@ -189,6 +189,7 @@ setup_vscode() {
   info 'Setting up VS Code'
   local overwrite_all=false backup_all=false skip_all=false
   link_file "$DOTFILES_ROOT/vs_code/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+  link_file "$DOTFILES_ROOT/vs_code/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
 }
 
 setup_xcode
