@@ -1,3 +1,4 @@
 {
-    "window.autoDetectColorScheme": true
+    "window.autoDetectColorScheme": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true
 }
