@@ -185,7 +185,14 @@ setup_xcode() {
   done
 }
 
+setup_vscode() {
+  info 'Setting up VS Code'
+  local overwrite_all=false backup_all=false skip_all=false
+  link_file "$DOTFILES_ROOT/vs_code/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+}
+
 setup_xcode
+setup_vscode
 setup_gitconfig
 setup_config
 setup_oh_my_zsh
