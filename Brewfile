@@ -9,6 +9,7 @@ brew "libxml2"
 brew "readline"
 brew "coreutils"
 brew "git"
+brew "cocoapods"
 
 cask "google-chrome"
 cask "speedcrunch"
