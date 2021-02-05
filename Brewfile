@@ -8,6 +8,7 @@ brew "tclap"
 brew "libxml2"
 brew "readline"
 brew "coreutils"
+brew "git"
 
 cask "google-chrome"
 cask "speedcrunch"
