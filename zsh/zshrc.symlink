@@ -10,6 +10,12 @@ plugins=(
     zsh-z
 )
 
+if [ $ITERM_SESSION_ID ]; then
+precmd() {
+  echo -ne "\033]0;${PWD##*/}\007"
+}
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # all of our zsh files
