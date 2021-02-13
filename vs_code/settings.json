@@ -1,4 +1,6 @@
 {
     "window.autoDetectColorScheme": true,
-    "workbench.editor.enablePreviewFromQuickOpen": true
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "Default Light+"
 }

@@ -13,3 +13,5 @@ brew "cocoapods"
 
 cask "google-chrome"
 cask "speedcrunch"
+cask "bartender"
+cask "spotify"

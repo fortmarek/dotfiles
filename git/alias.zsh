@@ -1,0 +1,1 @@
+alias glb='git lb'
