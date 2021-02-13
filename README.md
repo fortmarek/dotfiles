@@ -1,31 +1,21 @@
-# holman does dotfiles
+# My dotfiles
 
-Your dotfiles are how you personalize your system. These are mine.
+I spend a *lot* of time in the CLI, therefore I find it very important that it is setup in a way I like. That is not only because I want the time I spend in my CLI to be pleasant (although, that is absolutely a good reason!) but also to be *efficient*.
 
-I was a little tired of having long alias files and everything strewn about
-(which is extremely common on other dotfiles projects, too). That led to this
-project being much more topic-centric. I realized I could split a lot of things
-up into the main areas I used (Ruby, git, system libraries, and so on), so I
-structured the project accordingly.
+To achieve that it is important to have a look at your dotfiles.
 
-If you're interested in the philosophy behind why projects like these are
-awesome, you might want to [read my post on the
-subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
+While a lot of users do personalize their CLI in some way, it is not at all so common that people version their changes to them. They are also strewn all around the home directory and it is very hard to be sure where you can find what. As a result, this might make it harder for you to make customizations, so in a lot of cases you will not that make small change that might make your life a little better at all. But in the long run this all adds up.
 
-## topical
+Full disclosure:
+This project is heavily inspired by [holman/dotfiles](https://github.com/holman/dotfiles) but there are some major differences (eg oh-my-zsh integration)
+
+## Topics
 
 Everything's built around topic areas. If you're adding a new area to your
 forked dotfiles — say, "Java" — you can simply add a `java` directory and put
 files in there. Anything with an extension of `.zsh` will get automatically
 included into your shell. Anything with an extension of `.symlink` will get
 symlinked without extension into `$HOME` when you run `script/bootstrap`.
-
-## what's inside
-
-A lot of stuff. Seriously, a lot of stuff. Check them out in the file browser
-above and see what components may mesh up with you.
-[Fork it](https://github.com/holman/dotfiles/fork), remove what you don't
-use, and build on what you do use.
 
 ## components
 
@@ -45,18 +35,20 @@ There's a few special files in the hierarchy.
   but still keep those autoloaded files in your home directory. These get
   symlinked in when you run `script/bootstrap`.
 
-## install
+## Install
 
 Run this:
 
 ```sh
-git clone https://github.com/holman/dotfiles.git ~/.dotfiles
+git clone https://github.com/fortmarek/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
 Everything is configured and tweaked within `~/.dotfiles`.
+
+Running this should not be a destructive action as the script asks you if there is some file it would overwrite. But please use with care as there might be some changes I did not anticipate.
 
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
 which sets up a few paths that'll be different on your particular machine.
@@ -66,44 +58,4 @@ defaults, and so on. Tweak this script, and occasionally run `dot` from
 time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
 
-## bugs
-
-I want this to work for everyone; that means when you clone it down it should
-work for you even though you may not have `rbenv` installed, for example. That
-said, I do use this as _my_ dotfiles, so there's a good chance I may break
-something if I forget to make a check for a dependency.
-
-If you're brand-new to the project and run into any blockers, please
-[open an issue](https://github.com/holman/dotfiles/issues) on this repository
-and I'd love to get it fixed for you!
-
-## thanks
-
-I forked [Ryan Bates](http://github.com/ryanb)' excellent
-[dotfiles](http://github.com/ryanb/dotfiles) for a couple years before the
-weight of my changes and tweaks inspired me to finally roll my own. But Ryan's
-dotfiles were an easy way to get into bash customization, and then to jump ship
-to zsh a bit later. A decent amount of the code in these dotfiles stem or are
-inspired from Ryan's original project.
-
-------------------------------------------------------------------------------
-Oh My Zsh Distribution Notes
-------------------------------------------------------------------------------
-
-What you are looking at now is Oh My Zsh's repackaging of zsh-history-substring-search 
-as an OMZ module inside the Oh My Zsh distribution.
-
-The upstream repo, zsh-users/zsh-history-substring-search, can be found on GitHub at 
-https://github.com/zsh-users/zsh-history-substring-search.
-
-This downstream copy was last updated from the following upstream commit:
-
-  SHA:          0f80b8eb3368b46e5e573c1d91ae69eb095db3fb
-  Commit date:  2019-05-12 17:35:54 -0700
-
-Everything above this section is a copy of the original upstream's README, so things
-may differ slightly when you're using this inside OMZ. In particular, you do not
-need to set up key bindings for the up and down arrows yourself in `~/.zshrc`; the OMZ 
-plugin does that for you. You may still want to set up additional emacs- or vi-specific
-bindings as mentioned above.
-
+You also might want to update the `Brewfile` to configure your applications you want to install as the list there is completely personal - or delete it altogether if you prefer not to have this in your dotfiles.
