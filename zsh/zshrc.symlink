@@ -78,3 +78,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Haskell
+[ -f "/Users/marekfort/.ghcup/env" ] && source "/Users/marekfort/.ghcup/env" # ghcup-env
+
+# Latex
+export PATH="/Library/TeX/texbin:$PATH"

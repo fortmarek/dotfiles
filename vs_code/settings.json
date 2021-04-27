@@ -2,5 +2,11 @@
     "window.autoDetectColorScheme": true,
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "editor.wordWrap": "on",
-    "workbench.colorTheme": "Default Light+"
+    "workbench.colorTheme": "Default Light+",
+    "[haskell]": {
+        "editor.defaultFormatter": "haskell.haskell"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

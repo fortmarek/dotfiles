@@ -23,7 +23,7 @@
 ##   http://www.gnu.org/licenses/
 
 class String
-  def obfuscate; gsub(/@/, " at the ").gsub(/\.(\w+)(>|$)/, ' dot \1s\2') end
+  def obfuscate; gsub(/@/, " at the ").gsub(/\.(\w+)(>|$)/, ' dotfile \1s\2') end
   def htmlize; gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;") end
   # Fix for invalid encodings http://stackoverflow.com/a/24037885
   def clean

@@ -201,8 +201,8 @@ _tuist_graph() {
     args+=(
         '(-t --skip-test-targets)'{-t,--skip-test-targets}'[Skip Test targets during graph rendering.]'
         '(-d --skip-external-dependencies)'{-d,--skip-external-dependencies}'[Skip external dependencies.]'
-        '(-f --format)'{-f,--format}'[Available formats: dot, png]:format:'
-        '(-a --algorithm)'{-a,--algorithm}'[Available formats: dot, neato, twopi, circo, fdp, sfddp, patchwork]:algorithm:'
+        '(-f --format)'{-f,--format}'[Available formats: dotfile, png]:format:'
+        '(-a --algorithm)'{-a,--algorithm}'[Available formats: dotfile, neato, twopi, circo, fdp, sfddp, patchwork]:algorithm:'
         '(--path -p)'{--path,-p}'[The path where the graph will be generated.]:path:'
         '(-h --help)'{-h,--help}'[Print help information.]'
     )
