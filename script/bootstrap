@@ -43,7 +43,7 @@ setup_gitconfig () {
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" > git/gitconfig.local.symlink
 
     success 'gitconfig'
   fi
@@ -168,12 +168,6 @@ setup_oh_my_zsh_plugins () {
   done
 }
 
-setup_config() {
-  info 'Setting up config'
-  local overwrite_all=false backup_all=false skip_all=false
-  link_file "$DOTFILES_ROOT/gatsby/config.json" "$HOME/.config/gatsby/config.json"
-}
-
 setup_xcode() {
   info 'Setting up Xcode'
   local overwrite_all=false backup_all=false skip_all=false
@@ -195,7 +189,6 @@ setup_vscode() {
 setup_xcode
 setup_vscode
 setup_gitconfig
-setup_config
 setup_oh_my_zsh
 setup_oh_my_zsh_plugins
 install_dotfiles

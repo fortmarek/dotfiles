@@ -4,7 +4,10 @@
 [user]
         name = fortmarek
         email = marekfort@me.com
-[includeIf "gitdir:~/Development/ackee/"]
+	signingkey = CB99DD2E0F5AED117746EF7DEC1C62D489AA3806
+[includeIf "gitdir:~/src/github.com/Shopify/"]
+        path = ~/.gitconfig_work
+[includeIf "gitdir:~/Development/shopify/"]
         path = ~/.gitconfig_work
 [includeIf "gitdir:~/Development/school/"]
         path = ~/.gitconfig_school
@@ -27,6 +30,7 @@
         excludesfile = ~/.gitignore
         editor = vim
         pager = delta
+	commitGraph = true
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -42,7 +46,8 @@
         # Setting to git 2.0 default to suppress warning message
         default = simple
 [credential]
-	helper = osxkeychain
+	helper = 
+	helper = store --file /opt/dev/var/private/git_credential_store
 [interactive]
         diffFilter = delta --color-only
 [init]
@@ -56,3 +61,18 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[diff]
+	algorithm = patience
+[gc]
+	writeCommitGraph = true
+[protocol]
+	version = 2
+[url "https://github.com/Shopify/"]
+	insteadOf = git@github.com:Shopify/
+	insteadOf = git@github.com:shopify/
+	insteadOf = ssh://git@github.com/Shopify/
+	insteadOf = ssh://git@github.com/shopify/
+[gpg]
+	program = /nix/var/nix/gcroots/dev-profiles/dev-support-dev-profile/bin/gpg-auto-pin
+[commit]
+	gpgSign = true

@@ -83,3 +83,6 @@ unset __conda_setup
 
 # Latex
 export PATH="/Library/TeX/texbin:$PATH"
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+if [ -e /Users/marekfort/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/marekfort/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
