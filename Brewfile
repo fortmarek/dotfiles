@@ -11,6 +11,7 @@ brew "coreutils"
 brew "git"
 brew "cocoapods"
 brew "less"
+brew "ruby-install"
 
 cask "speedcrunch"
 cask "bartender"

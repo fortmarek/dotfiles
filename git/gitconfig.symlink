@@ -75,4 +75,4 @@
 [gpg]
 	program = /nix/var/nix/gcroots/dev-profiles/dev-support-dev-profile/bin/gpg-auto-pin
 [commit]
-	gpgSign = true
+	gpgsign = true
