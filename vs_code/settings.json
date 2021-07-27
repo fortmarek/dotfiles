@@ -8,5 +8,6 @@
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "security.workspace.trust.untrustedFiles": "open",
     "workbench.colorTheme": "Default Light+"
 }

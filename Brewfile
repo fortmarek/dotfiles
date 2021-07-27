@@ -12,6 +12,7 @@ brew "git"
 brew "cocoapods"
 brew "less"
 brew "ruby-install"
+brew "git-lfs"
 
 cask "speedcrunch"
 cask "bartender"
