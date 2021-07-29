@@ -42,3 +42,6 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # Speed-up animation of dock
 defaults write com.apple.dock autohide-time-modifier -int 0.2;killall Dock
+
+# Set up scrolling in less
+defaults write com.googlecode.iterm2 AlternateMouseScroll -bool true

@@ -55,7 +55,7 @@ export PATH="$HOME/.dotfiles/bin:$PATH"
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
 
 # Delta
-export DELTA_PAGER="less -rR --mouse"
+export DELTA_PAGER="less -rR"
 
 # Ruby
 export PATH="/usr/local/opt/ruby@2.7/bin:$PATH"
