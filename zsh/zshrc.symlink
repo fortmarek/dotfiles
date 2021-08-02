@@ -62,8 +62,8 @@ export PATH="/usr/local/opt/ruby@2.7/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby@2.7/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby@2.7/include"
 export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
-# source /usr/local/share/chruby/chruby.sh
-# source /usr/local/share/chruby/auto.sh
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 
 # Android Studio
 export ANDROID_HOME=$HOME/Library/Android/sdk

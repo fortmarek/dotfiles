@@ -1,0 +1,1 @@
+alias bepi="bundle exec pod install"
