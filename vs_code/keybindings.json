@@ -34,5 +34,21 @@
         "key": "shift+down",
         "command": "-cursorUpSelect",
         "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+n",
+        "command": "explorer.newFile"
+    },
+    {
+        "key": "ctrl+cmd+n",
+        "command": "workbench.action.files.newUntitledFile"
+    },
+    {
+        "key": "cmd+n",
+        "command": "-workbench.action.files.newUntitledFile"
+    },
+    {
+        "key": "shift+alt+n",
+        "command": "explorer.newFolder"
     }
 ]

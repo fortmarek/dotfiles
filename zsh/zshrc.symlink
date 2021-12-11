@@ -62,8 +62,8 @@ export PATH="/usr/local/opt/ruby@2.7/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby@2.7/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby@2.7/include"
 export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+# source /usr/local/share/chruby/chruby.sh
+# source /usr/local/share/chruby/auto.sh
 
 # Android Studio
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -97,3 +97,9 @@ export PATH="/Library/TeX/texbin:$PATH"
 if [ -e /Users/marekfort/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/marekfort/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+
+[[ -x /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -1,5 +1,4 @@
 {
-    "window.autoDetectColorScheme": true,
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "editor.wordWrap": "on",
     "[haskell]": {
@@ -9,5 +8,17 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "Default Light+"
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "explorer.confirmDelete": false,
+    "window.autoDetectColorScheme": true,
+    "ruby.rubocop.suppressRubocopWarnings": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "explorer.confirmDragAndDrop": false
 }

@@ -1,6 +1,11 @@
---- 
+---
+:backtrace: false
+:bulk_threshold: 1000
+:sources:
+- https://rubygems.org/
+- https://pkgs.shopify.io/mZkl8mO51EfQg3cx/gems/ruby/
 :update_sources: true
 :verbose: true
-:backtrace: false
-:benchmark: false
-gem: --no-document
+:concurrent_downloads: 8
+benchmark: false
+gem: "--no-document"

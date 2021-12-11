@@ -2,14 +2,14 @@
 [include]
         path = ~/.gitconfig.local
 [user]
-        name = fortmarek
-        email = marekfort@me.com
+	name = fortmarek
+	email = marekfort@me.com
 	signingkey = 7B85D36E43B181FA
 [includeIf "gitdir:~/src/github.com/Shopify/"]
         path = ~/.gitconfig_work
-[includeIf "gitdir:~/Development/shopify/"]
+[includeIf "gitdir:~/Developer/shopify/"]
         path = ~/.gitconfig_work
-[includeIf "gitdir:~/Development/school/"]
+[includeIf "gitdir:~/Developer/school/"]
         path = ~/.gitconfig_school
 [hub]
         protocol = https
@@ -27,7 +27,7 @@
         branch = auto
         ui = true
 [core]
-        excludesfile = ~/.gitignore
+	excludesfile = /Users/marekfort/.gitignore
         editor = vim
         pager = delta
 	commitGraph = true
@@ -55,7 +55,9 @@
 [pull]
 	rebase = true
 [merge]
-	tool = opendiff
+	tool = vscode
+[mergetool "vscode"]
+        cmd = code --wait $MERGED
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -76,3 +78,10 @@
 	program = /nix/var/nix/gcroots/dev-profiles/dev-support-dev-profile/bin/gpg-auto-pin
 [commit]
 	gpgsign = true
+	template = /Users/marekfort/.stCommitMsg
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
