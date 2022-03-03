@@ -1,16 +1,13 @@
 # Local/private config goes in the include
 [include]
         path = ~/.gitconfig.local
+	path = /Users/marekfort/.config/dev/gitconfig
 [user]
 	name = fortmarek
 	email = marekfort@me.com
 	signingkey = 7B85D36E43B181FA
 [includeIf "gitdir:~/src/github.com/Shopify/"]
         path = ~/.gitconfig_work
-[includeIf "gitdir:~/Developer/shopify/"]
-        path = ~/.gitconfig_work
-[includeIf "gitdir:~/Developer/school/"]
-        path = ~/.gitconfig_school
 [hub]
         protocol = https
 [alias]
@@ -30,7 +27,6 @@
 	excludesfile = /Users/marekfort/.gitignore
         editor = vim
         pager = delta
-	commitGraph = true
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -45,9 +41,6 @@
         #
         # Setting to git 2.0 default to suppress warning message
         default = simple
-[credential]
-	helper = 
-	helper = store --file /opt/dev/var/private/git_credential_store
 [interactive]
         diffFilter = delta --color-only
 [init]
@@ -63,19 +56,8 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[diff]
-	algorithm = patience
-[gc]
-	writeCommitGraph = true
-[protocol]
-	version = 2
-[url "https://github.com/Shopify/"]
-	insteadOf = git@github.com:Shopify/
-	insteadOf = git@github.com:shopify/
-	insteadOf = ssh://git@github.com/Shopify/
-	insteadOf = ssh://git@github.com/shopify/
 [gpg]
-	program = /nix/var/nix/gcroots/dev-profiles/dev-support-dev-profile/bin/gpg-auto-pin
+	program = /opt/dev/bin/gpg-auto-pin
 [commit]
 	gpgsign = true
 	template = /Users/marekfort/.stCommitMsg
