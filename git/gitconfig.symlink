@@ -5,7 +5,7 @@
 [user]
 	name = fortmarek
 	email = marekfort@me.com
-	signingkey = 2100E5FD30CD1137
+	signingkey = 65E49F9C6B6AD239
 [includeIf "gitdir:~/src/github.com/Shopify/"]
         path = ~/.gitconfig_work
 [hub]

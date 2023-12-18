@@ -146,7 +146,7 @@ setup_oh_my_zsh () {
 
   if ! [ -d "$HOME/.oh-my-zsh" ]
   then
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &>/dev/null
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     local overwrite_all=true backup_all=false skip_all=false
   else
     local overwrite_all=false backup_all=false skip_all=false
@@ -184,6 +184,7 @@ setup_xcode() {
 setup_vscode() {
   info 'Setting up VS Code'
   local overwrite_all=false backup_all=false skip_all=false
+  mkdir -p ""$HOME/Library/Application Support/Code/User"
   link_file "$DOTFILES_ROOT/vs_code/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
   link_file "$DOTFILES_ROOT/vs_code/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
 }
