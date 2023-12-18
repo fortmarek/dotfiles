@@ -26,5 +26,6 @@
       "**/.project": true,
       "**/.settings": true,
       "**/.factorypath": true
-    }
+    },
+    "workbench.colorTheme": "Default Dark Modern"
 }

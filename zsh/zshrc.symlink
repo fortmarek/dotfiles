@@ -60,12 +60,8 @@ export PATH="/usr/local/opt/ncurses/bin:$PATH"
 export DELTA_PAGER="less -rR"
 
 # Ruby
-export PATH="/usr/local/opt/ruby@2.7/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/ruby@2.7/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby@2.7/include"
-export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+### Note this can change depending on your system Ruby
+export LDFLAGS="-L/usr/lib/ruby/2.6.0"
 
 # Android Studio
 export ANDROID_HOME=$HOME/Library/Android/sdk
