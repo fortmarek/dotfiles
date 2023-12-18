@@ -12,6 +12,7 @@ brew "rtx"
 brew "nvm"
 brew "xcodes"
 brew "gpg"
+brew "gh"
 
 cask "bartender"
 cask "spotify"
