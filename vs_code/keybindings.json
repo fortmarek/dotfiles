@@ -67,7 +67,7 @@
         "when": "terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected"
     },
     {
-        "key": "alt+cmd+backspace",
+        "key": "ctrl+cmd+backspace",
         "command": "workbench.action.terminal.killActiveTab",
         "when": "terminalHasBeenCreated && terminalTabsFocus || terminalIsOpen && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
     },
