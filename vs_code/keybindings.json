@@ -75,5 +75,14 @@
         "key": "cmd+backspace",
         "command": "-workbench.action.terminal.killActiveTab",
         "when": "terminalHasBeenCreated && terminalTabsFocus || terminalIsOpen && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
+    },
+    {
+        "key": "delete",
+        "command": "-workbench.action.terminal.killActiveTab",
+        "when": "terminalHasBeenCreated && terminalTabsFocus || terminalIsOpen && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
+    },
+    {
+        "key": "ctrl+cmd+backspace",
+        "command": "workbench.action.terminal.kill"
     }
 ]
