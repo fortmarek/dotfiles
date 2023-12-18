@@ -188,7 +188,7 @@ setup_vscode() {
   link_file "$DOTFILES_ROOT/vs_code/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
 }
 
-setup_xcode
+# setup_xcode
 setup_vscode
 setup_gitconfig
 setup_oh_my_zsh
