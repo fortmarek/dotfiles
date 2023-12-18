@@ -62,6 +62,9 @@ export DELTA_PAGER="less -rR"
 # Ruby
 ### Note this can change depending on your system Ruby
 export LDFLAGS="-L/usr/lib/ruby/2.6.0"
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+
 
 # Android Studio
 export ANDROID_HOME=$HOME/Library/Android/sdk
