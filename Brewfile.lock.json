@@ -609,7 +609,7 @@
     },
     "cask": {
       "bartender": {
-        "version": "5.0.44",
+        "version": "5.0.48",
         "options": {
           "full_name": "bartender"
         }
@@ -649,13 +649,25 @@
         "options": {
           "full_name": "slack"
         }
+      },
+      "tuple": {
+        "version": "0.112.0,2023-12-06,5eb69830c",
+        "options": {
+          "full_name": "tuple"
+        }
+      },
+      "signal": {
+        "version": "6.42.0",
+        "options": {
+          "full_name": "signal"
+        }
       }
     }
   },
   "system": {
     "macos": {
       "sonoma": {
-        "HOMEBREW_VERSION": "4.1.25",
+        "HOMEBREW_VERSION": "4.2.0",
         "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "api",
         "CLT": "15.1.0.0.1.1700200546",
