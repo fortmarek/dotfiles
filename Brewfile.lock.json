@@ -412,45 +412,45 @@
         }
       },
       "rtx": {
-        "version": "2023.12.30",
+        "version": "2023.12.31",
         "bottle": {
           "rebuild": 0,
           "root_url": "https://ghcr.io/v2/homebrew/core",
           "files": {
             "arm64_sonoma": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:9937d153adf33e840f303c5ec9869ee58bd8084dd118284054e852afd13956aa",
-              "sha256": "9937d153adf33e840f303c5ec9869ee58bd8084dd118284054e852afd13956aa"
+              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:73d429f92bf1b3b1ffef9c26f7ed0b28f7c49e6c6c2f7b703aef59dc2288cdc1",
+              "sha256": "73d429f92bf1b3b1ffef9c26f7ed0b28f7c49e6c6c2f7b703aef59dc2288cdc1"
             },
             "arm64_ventura": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:631110cd15c196a137db2981a418d8e770183dbadf179e39b71a6586cbae5d5f",
-              "sha256": "631110cd15c196a137db2981a418d8e770183dbadf179e39b71a6586cbae5d5f"
+              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:5d0c56324941dbb1e4553b2eb7f314ee7b05593f7986b10b4064d7bfc9b0bd1b",
+              "sha256": "5d0c56324941dbb1e4553b2eb7f314ee7b05593f7986b10b4064d7bfc9b0bd1b"
             },
             "arm64_monterey": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:8baed7c501efe928f03ce7e47f0ab75f146b628b61e80bcbb31924703ca266c8",
-              "sha256": "8baed7c501efe928f03ce7e47f0ab75f146b628b61e80bcbb31924703ca266c8"
+              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:b3d3b023cf97d1fa5a8dda48a60163789967fed269d698ff071180ef67644a5f",
+              "sha256": "b3d3b023cf97d1fa5a8dda48a60163789967fed269d698ff071180ef67644a5f"
             },
             "sonoma": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:c87f247af96559bb1d4f24618561f2725f5cbd7b6c8626258891fcd7bf8cf58e",
-              "sha256": "c87f247af96559bb1d4f24618561f2725f5cbd7b6c8626258891fcd7bf8cf58e"
+              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:c765710222af74bc75d1003d0fac12e5954b431ea1534c4527f4b526bc45555f",
+              "sha256": "c765710222af74bc75d1003d0fac12e5954b431ea1534c4527f4b526bc45555f"
             },
             "ventura": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:8b44310d28587d30da335bfc2427ecc8d2de98b4916c703d0d579d56b3ec1c19",
-              "sha256": "8b44310d28587d30da335bfc2427ecc8d2de98b4916c703d0d579d56b3ec1c19"
+              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:df0ef52a91ef035c5fd76397e6fc228b8f24cfae0cc87dc013f7e4343a42f4f6",
+              "sha256": "df0ef52a91ef035c5fd76397e6fc228b8f24cfae0cc87dc013f7e4343a42f4f6"
             },
             "monterey": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:df7b4689b249a4ed743bdd0cfe7499edca439f53856fbf19cf2e14f5b25532d1",
-              "sha256": "df7b4689b249a4ed743bdd0cfe7499edca439f53856fbf19cf2e14f5b25532d1"
+              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:39cb4a38cd788766e556d007b251232e4f06772703f6dff1299c150f276f23fa",
+              "sha256": "39cb4a38cd788766e556d007b251232e4f06772703f6dff1299c150f276f23fa"
             },
             "x86_64_linux": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:e6caa8d0fe64481ad59e3455c6e39b29d8ed5001f4d2e0fb4226ecc2085b64de",
-              "sha256": "e6caa8d0fe64481ad59e3455c6e39b29d8ed5001f4d2e0fb4226ecc2085b64de"
+              "url": "https://ghcr.io/v2/homebrew/core/rtx/blobs/sha256:f54e122aa05c73daa5933ca63f8280c8a1b9a09b71bf61c12171cebd73e33156",
+              "sha256": "f54e122aa05c73daa5933ca63f8280c8a1b9a09b71bf61c12171cebd73e33156"
             }
           }
         }
@@ -633,7 +633,7 @@
         }
       },
       "raycast": {
-        "version": "1.64.3",
+        "version": "1.64.4",
         "options": {
           "full_name": "raycast"
         }
@@ -660,6 +660,12 @@
         "version": "6.42.0",
         "options": {
           "full_name": "signal"
+        }
+      },
+      "discord": {
+        "version": "0.0.290",
+        "options": {
+          "full_name": "discord"
         }
       }
     }

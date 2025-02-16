@@ -5,7 +5,7 @@
 [user]
 	name = fortmarek
 	email = marekfort@me.com
-	signingkey = 65E49F9C6B6AD239
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP5W6b0UG4wwZbcPdNmpe36yiFgcIDek3i3WNv7Sb+Dq
 [includeIf "gitdir:~/src/github.com/Shopify/"]
         path = ~/.gitconfig_work
 [hub]
@@ -57,7 +57,9 @@
 	process = git-lfs filter-process
 	required = true
 [gpg]
-	program = /opt/dev/bin/gpg-auto-pin
+    format = ssh
+[gpg "ssh"]
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [diff]
 	algorithm = patience
 [gc]
@@ -74,15 +76,17 @@
 	template = /Users/marekfort/.stCommitMsg
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [gpg]
 	program = gpg
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[http]
+	postBuffer = 157286400

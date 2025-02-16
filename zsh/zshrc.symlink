@@ -52,6 +52,7 @@ DEFAULT_USER=`whoami`
 
 # Bin files
 export PATH="$HOME/.dotfiles/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Less
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
@@ -61,9 +62,9 @@ export DELTA_PAGER="less -rR"
 
 # Ruby
 ### Note this can change depending on your system Ruby
-export LDFLAGS="-L/usr/lib/ruby/2.6.0"
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+# export LDFLAGS="-L/usr/lib/ruby/2.6.0"
+# source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+# source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 
 # Android Studio
@@ -144,5 +145,11 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# rtx
-eval "$(rtx activate zsh)"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/marekfort/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/marekfort/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/marekfort/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/marekfort/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# mise
+eval "$(~/.local/bin/mise activate zsh)"
