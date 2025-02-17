@@ -1,7 +1,7 @@
 # Local/private config goes in the include
 [include]
-        path = ~/.gitconfig.local
-	path = /Users/marekfort/.config/dev/gitconfig
+    path = ~/.gitconfig.local
+    path = ~/.dotfiles/delta/themes.gitconfig
 [user]
 	name = fortmarek
 	email = marekfort@me.com
